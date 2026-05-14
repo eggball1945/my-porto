@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #0f172a; /* slate-900 */
+  --foreground: #f8fafc; /* slate-50 */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Safety fix for AOS: Show elements if AOS fails to initialize (e.g. on back navigation) */
+[data-aos]:not(.aos-init) {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
