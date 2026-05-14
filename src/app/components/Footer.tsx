@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-4 group">
               <div className="relative">
                 <Image
-                  src="/images/logo.svg"
+                  src="/images/icon.png"
                   alt="IF Logo"
                   width={40}
                   height={40}
